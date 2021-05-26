@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="List"
+             x:Class="List.MainPage">
+
+    <StackLayout>
+        <ListView x:Name="dataList" RowHeight="60" ItemsSource="{Binding lData}" ItemSelected="sItem" SeparatorColor="Black">
+            <ListView.Header>
+                <Label Text="Список продуктов" FontSize="25" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding num}" FontSize="20" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Content}" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding price}" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                <CheckBox TabIndex="{Binding num}" CheckedChanged="cbCheck" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="nBtn" FontSize="20" Text="В корзину" Clicked="nBtnClick" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Label x:Name="cbInfo" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
